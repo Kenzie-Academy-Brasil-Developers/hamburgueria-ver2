@@ -16,10 +16,10 @@ export function Header() {
     <StyledHeader>
       <header>
         <Logo />
-        <div>
+        <div className="header-buttons">
           <SearchInput />
-          <CartImg onClick={() => setModalCart(true)}/>
-          <LogoutImg onClick={() => logout()}/>
+          <CartImg onClick={() => setModalCart(true)} className="header-btn"/>
+          <LogoutImg onClick={() => logout()} className="header-btn"/>
         </div>
       </header>
     </StyledHeader>

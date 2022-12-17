@@ -6,7 +6,7 @@ export const StyledSearch = styled.form`
   padding: 0 10px 0 10px;
   position: relative;
 
-  @media (min-width: 800px) {
+  @media (min-width: 900px) {
     width: 400px;
   }
 
@@ -43,5 +43,21 @@ export const StyledSearch = styled.form`
   }
   .search-img{
     color: #fff;
+  }
+
+  @media(max-width: 600px){
+    input{
+      width: 40px
+    }
+    input:focus{
+      position: absolute;
+      right: 10px;
+      z-index: 5;
+      width: 60vw;
+    }
+
+    button{
+      display: none;
+    }
   }
 `;

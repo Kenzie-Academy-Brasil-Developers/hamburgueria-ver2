@@ -8,7 +8,13 @@ export const StyledHeader = styled.div`
   align-items: center;
   justify-content: center;
   padding: 0 8vw;
-
+  
+  @media (min-width: 800px) {
+    padding: 0 12vw;
+  }
+  @media (max-width:600px ){
+    max-height: fit-content;
+  }
   header {
     width: 100%;
     display: flex;
@@ -17,7 +23,11 @@ export const StyledHeader = styled.div`
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 8px;
+        gap: 10px;
+        .header-btn{
+          min-width: 25px;
+          
+        }
     }
   }
 `;
