@@ -2,9 +2,12 @@ import { useContext, useEffect, useState } from "react";
 import { CartContext } from "../../../providers/CartContext";
 import { UserContext } from "../../../providers/UserContext";
 import { StyledSearch } from "./styles";
-import { ReactComponent as SearchImg } from "../../../Images/SearchBtn.svg"
+// import { ReactComponent as SearchImg } from "../../../Images/SearchBtn.svg"
 
-
+interface IFilter{
+  name: string;
+  category: string;
+}
 
 export function SearchInput() {
   const { products } = useContext(UserContext);
@@ -19,7 +22,7 @@ export function SearchInput() {
     
 
     const filtered = products.filter(
-      ({ name, category }) =>
+      ({ name, category }: IFilter) =>
         name
           .normalize("NFD")
           .replace(/[\u0300-\u036f]/g, "")
@@ -44,7 +47,7 @@ export function SearchInput() {
         onChange={(text) => setSearch(text.target.value)}
       />
       <button type="submit">       
-        <SearchImg className="search-img"/>
+        {/* <SearchImg className="search-img"/> */}
       </button>
     </StyledSearch>
   );

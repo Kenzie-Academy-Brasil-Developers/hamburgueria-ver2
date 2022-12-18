@@ -1,10 +1,19 @@
 import { useContext } from "react";
 import { CartContext } from "../../providers/CartContext";
-import { StyledCard } from "./styles.js";
+import { StyledCard } from "./styles";
 
-export function ProductCard({ name, img, category, price, id }) {
+interface IProductCard{ 
+  name: string;
+  img: string;
+  category: string;
+  price: number; 
+  id: number;
+}
+
+export function ProductCard({ name, img, category, price, id }: IProductCard) {
   const { addToCart } = useContext(CartContext);
-  
+  let quantity = 1
+
   return (
     <StyledCard>
       <figure>
@@ -19,7 +28,7 @@ export function ProductCard({ name, img, category, price, id }) {
             currency: "BRL",
           })}
         </span>
-        <button onClick={() => addToCart({ img, name, price, category, id })}>
+        <button onClick={() => addToCart( {img, name, price, category, id, quantity} )}>
           Adicionar
         </button>
       </div>

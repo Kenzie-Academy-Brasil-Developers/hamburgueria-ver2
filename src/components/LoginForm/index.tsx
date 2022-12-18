@@ -6,6 +6,11 @@ import { UserContext } from "../../providers/UserContext";
 import { StyledForm } from "./styled";
 import { Link } from "react-router-dom";
 
+export interface ILoginForm{
+  email: string;
+  password: string;
+}
+
 export function LoginForm() {
   const { login } = useContext(UserContext);
 
@@ -13,7 +18,7 @@ export function LoginForm() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({
+  } = useForm<ILoginForm>({
     mode: "onChange",
     resolver: yupResolver(loginSchema),
   });

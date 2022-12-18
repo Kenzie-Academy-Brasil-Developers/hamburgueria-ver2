@@ -1,11 +1,18 @@
 import { StyledCard } from "./styles";
-import { ReactComponent as DeleteBtn } from "../../../Images/TrashBtn.svg";
+// import { ReactComponent as DeleteBtn } from "../../../Images/TrashBtn.svg";
 import { useContext } from "react";
 import { CartContext } from "../../../providers/CartContext";
+import { IProduct } from "..";
 
-export function CartCard({ prod }) {
+interface IProd {
+  prod: IProduct;
+}
+
+export function CartCard({ prod }: IProd) {
   const { removeItem, addItem, removeAllItem } = useContext(CartContext);
-  const { name, img, id } = prod;
+  const { name, img, id, quantity } = prod;
+
+
 
   return (
     <StyledCard>
@@ -19,16 +26,16 @@ export function CartCard({ prod }) {
             <button onClick={() => removeItem(id)} className="remove-btn">
               -
             </button>
-            {prod.quantity > 0 ? <span>{prod.quantity}</span> : false}
+            <span>{quantity}</span>
             <button onClick={() => addItem(id)} className="add-btn">
               +
             </button>
           </div>
         </div>
       </div>
-      <DeleteBtn onClick={() => removeAllItem(id)} className="remove-item">
+      <button onClick={() => removeAllItem(id)} className="remove-item">
         Remover
-      </DeleteBtn>
+      </button>
     </StyledCard>
   );
 }

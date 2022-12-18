@@ -6,6 +6,13 @@ import { StyledForm } from "../LoginForm/styled";
 import { registerSchema } from "./registerSchema";
 import { Link } from "react-router-dom";
 
+export interface IRegisterForm {
+  name: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+}
+
 export function RegisterForm() {
   const { registerUser } = useContext(UserContext);
 
@@ -13,7 +20,7 @@ export function RegisterForm() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({
+  } = useForm<IRegisterForm>({
     mode: "onChange",
     resolver: yupResolver(registerSchema),
   });

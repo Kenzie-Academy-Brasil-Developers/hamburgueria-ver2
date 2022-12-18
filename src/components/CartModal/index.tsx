@@ -3,12 +3,25 @@ import { CartContext } from "../../providers/CartContext";
 import { StyledCartModal } from "./styles";
 import { CartCard } from "./CartCard";
 
+interface ITotalPrice {
+  price: number;
+  quantity: number;
+}
+
+export interface IProduct {
+  name: string;
+  img: string;
+  id: number;
+  quantity: number;
+} 
+
+
 export function CartModal() {
   const { modalCart, setModalCart, cartItems, setCartItems } =
     useContext(CartContext);
-
+    
   const totalPrice = cartItems
-    .reduce((acc, current) => acc + current.price * current.quantity, 0)
+    .reduce((acc: number,  current: ITotalPrice) => acc + current.price * current.quantity, 0)
     .toLocaleString("pt-br", {
       style: "currency",
       currency: "BRL",
@@ -25,7 +38,7 @@ export function CartModal() {
                 <button onClick={() => setModalCart(false)}>X</button>
               </div>
               <ul className="cart-items">
-                {cartItems?.map((prod, i) => (
+                {cartItems?.map((prod: IProduct, i: number) => (
                   <CartCard prod={prod} key={i} />
                 ))}
               </ul>
