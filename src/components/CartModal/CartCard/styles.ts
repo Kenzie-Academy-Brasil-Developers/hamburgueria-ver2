@@ -29,6 +29,7 @@ export const StyledCard = styled.li`
   .remove-item {
     position: relative;
     bottom: 22px;
+    width: 30px;
   }
 
   .card-infos {

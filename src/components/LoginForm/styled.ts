@@ -24,8 +24,13 @@ export const StyledForm = styled.section`
 
     input {
       height: 35px;
-      border: 2px solid var(--color-grey-50);
+      border: 1.5px solid var(--color-grey-0);
       border-radius: 4px;
+      background-color: var(--color-grey-0);
+      padding: 3px 0 0 5px;
+    }
+    input:focus{
+      background-color: var(--color-background);
     }
 
     p {

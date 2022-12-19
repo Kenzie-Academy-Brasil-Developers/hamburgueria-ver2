@@ -13,7 +13,7 @@ export const StyledHeader = styled.div`
     padding: 0 12vw;
   }
   @media (max-width:600px ){
-    max-height: fit-content;
+    
   }
   header {
     width: 100%;
@@ -25,8 +25,14 @@ export const StyledHeader = styled.div`
         align-items: center;
         gap: 10px;
         .header-btn{
-          min-width: 25px;
-          
+          width: 25px;
+          height: 35px;
+        }
+        @media (max-width: 600px) {
+          .header-btn{
+            min-width: 20px;
+            height: 30px;
+          }
         }
     }
   }

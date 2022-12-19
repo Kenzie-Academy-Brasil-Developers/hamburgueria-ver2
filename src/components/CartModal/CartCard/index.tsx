@@ -1,5 +1,5 @@
 import { StyledCard } from "./styles";
-// import { ReactComponent as DeleteBtn } from "../../../Images/TrashBtn.svg";
+import { BsFillTrashFill } from "react-icons/bs"
 import { useContext } from "react";
 import { CartContext } from "../../../providers/CartContext";
 import { IProduct } from "..";
@@ -33,9 +33,7 @@ export function CartCard({ prod }: IProd) {
           </div>
         </div>
       </div>
-      <button onClick={() => removeAllItem(id)} className="remove-item">
-        Remover
-      </button>
+      <BsFillTrashFill onClick={() => removeAllItem(id)} className="remove-item"/>
     </StyledCard>
   );
 }

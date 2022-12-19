@@ -25,7 +25,7 @@ export const StyledSearch = styled.form`
     }
   }
 
-  button {
+  .search-icon {
     width: fit-content;
     padding: 5px;
     height: 33px;

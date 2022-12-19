@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { CartContext } from "../../../providers/CartContext";
 import { UserContext } from "../../../providers/UserContext";
 import { StyledSearch } from "./styles";
-// import { ReactComponent as SearchImg } from "../../../Images/SearchBtn.svg"
+import { HiOutlineMagnifyingGlass } from "react-icons/hi2"
 
 interface IFilter{
   name: string;
@@ -46,9 +46,7 @@ export function SearchInput() {
         placeholder="Digitar Pesquisa"
         onChange={(text) => setSearch(text.target.value)}
       />
-      <button type="submit">       
-        {/* <SearchImg className="search-img"/> */}
-      </button>
+      <HiOutlineMagnifyingGlass type="submit" className="search-icon"/>
     </StyledSearch>
   );
 }
